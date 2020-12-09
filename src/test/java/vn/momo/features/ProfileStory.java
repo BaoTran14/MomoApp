@@ -103,7 +103,7 @@ public class ProfileStory {
         givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
 
         when(anna).attemptsTo(
-                Update.currentHomeLocation("Bắc Ninh")
+                Update.currentHomeLocation("Hà Nội")
                         .to(Mode.PUBLIC)
         );
 

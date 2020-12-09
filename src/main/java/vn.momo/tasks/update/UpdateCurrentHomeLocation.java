@@ -22,9 +22,7 @@ public class UpdateCurrentHomeLocation implements Task {
         Target LOCATION_TO_SELECT = Target.the("location to be updated").located(By.xpath("//*[@text='"+location+"']"));
         theUser.attemptsTo(
                 Click.on(AboutMeScreen.CURRENT_HOME_LOCATION_SELECT_BOX),
-
                 ScrollInsideModal.to(location),
-                MobileScrollTo.text(location),
                 Click.on(LOCATION_TO_SELECT),
                 Click.on(AboutMeScreen.CURRENT_HOME_LOCATION_SELECT_MODE_BUTTON),
                 Choose.privacyAs(mode),

@@ -1,9 +1,9 @@
 # Serenity Screenplay pattern for automation testing native app Momo
-
+Project with purpose of automating testing Momo application. Serenity screenplay pattern is used
+with outstanding resolved actions, especially scrolling to select an element inside float modal(Found at ```ScrollInsideModalToText.java```).
 ## Screenplay structure
 
 ## Running project
-
 
 > mvn clean verify -Denvironment={environment}
 

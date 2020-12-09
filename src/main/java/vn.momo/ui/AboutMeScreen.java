@@ -14,4 +14,10 @@ public class AboutMeScreen {
             .located(By.xpath("(//android.widget.ScrollView)[3]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[1]"));
     public static Target CURRENT_HOME_LOCATION_SELECT_MODE_BUTTON = Target.the("select mode button current home location ")
             .located(By.xpath("(//android.widget.ScrollView)[3]/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]"));
+
+    public interface SelectModalScroll {
+        Target ALL_OPTION = Target.the("all displayed option")
+                .located(By.xpath("(//android.widget.ScrollView)[4]//android.widget.TextView"));
+        By ALL_DEFAULT_OPTION = By.xpath("(//android.widget.ScrollView)[4]//android.widget.TextView");
+    }
 }
