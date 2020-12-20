@@ -11,8 +11,9 @@ import vn.momo.ui.MyWalletScreen;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 
 public class NavigateToProfileScreen implements Task {
-    @Step("{0} navigates to her profile screen")
+
     @Override
+    @Step("{0} navigates to her profile screen")
     public <T extends Actor> void performAs(T theUser) {
         theUser.attemptsTo(
                 WaitUntil.the(FooterFrame.MY_WALLET_CATEGORY, isClickable()).forNoMoreThan(30).seconds(),

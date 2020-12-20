@@ -60,7 +60,7 @@ public class ScrollInsideModalToText implements Interaction {
                 } else {
                     optionToSelectIsNotExist = afterScroll.equals(beforeScroll);
                     beforeScroll = afterScroll;
-                    System.out.println(text + "is not existed");
+                    System.out.println(text + " is not existed");
                 }
             }while (!optionToSelectIsExisted && !optionToSelectIsNotExist);
         }

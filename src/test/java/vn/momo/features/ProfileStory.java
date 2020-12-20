@@ -15,6 +15,7 @@ import vn.momo.questions.displayof.DisplayOf;
 import vn.momo.tasks.Login;
 import vn.momo.tasks.change.Change;
 import vn.momo.tasks.navigate.Navigate;
+import vn.momo.tasks.start.Start;
 import vn.momo.tasks.update.Update;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
@@ -53,9 +54,10 @@ public class ProfileStory {
     @Test
     public void update_intimate_name_to_public() {
         givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
+        andThat(anna).wasAbleTo(Start.withIntimateName("BaoBupBe"));
 
         when(anna).attemptsTo(
-                Update.theIntimateName("Bảo Bảo")
+                Update.theIntimateName("Bảo Bảo")d
                         .to(Mode.PUBLIC)
         );
 
@@ -69,6 +71,7 @@ public class ProfileStory {
     @Test
     public void update_intimate_name_to_friends() {
         givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
+        andThat(anna).wasAbleTo(Start.withIntimateName("BaoBupBe"));
 
         when(anna).attemptsTo(
                 Update.theIntimateName("Bảo Bảo")
@@ -85,6 +88,7 @@ public class ProfileStory {
     @Test
     public void update_intimate_name_to_only_me() {
         givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
+        andThat(anna).wasAbleTo(Start.withIntimateName("BaoBupBe"));
 
         when(anna).attemptsTo(
                 Update.theIntimateName("Bảo Bảo")
@@ -101,10 +105,45 @@ public class ProfileStory {
     @Test
     public void update_current_home_location_to_public(){
         givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
+        andThat(anna).wasAbleTo(Start.withHomeLocationIs("Cần Thơ"));
 
         when(anna).attemptsTo(
                 Update.currentHomeLocation("Hà Nội")
                         .to(Mode.PUBLIC)
+        );
+
+        then(anna).should(
+                seeThat(
+                        DisplayOf.successfulUpdateMessage(), is(true)
+                )
+        );
+    }
+
+    @Test
+    public void update_current_home_location_to_friends(){
+        givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
+        andThat(anna).wasAbleTo(Start.withHomeLocationIs("Cần Thơ"));
+
+        when(anna).attemptsTo(
+                Update.currentHomeLocation("Đồng Tháp")
+                        .to(Mode.FRIENDS)
+        );
+
+        then(anna).should(
+                seeThat(
+                        DisplayOf.successfulUpdateMessage(), is(true)
+                )
+        );
+    }
+
+    @Test
+    public void update_current_home_location_to_only_me(){
+        givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
+        andThat(anna).wasAbleTo(Start.withHomeLocationIs("Cần Thơ"));
+
+        when(anna).attemptsTo(
+                Update.currentHomeLocation("Đà Nẵng")
+                        .to(Mode.ONLY_ME)
         );
 
         then(anna).should(

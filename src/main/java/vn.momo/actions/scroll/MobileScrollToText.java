@@ -20,6 +20,6 @@ public class MobileScrollToText implements Interaction {
     public <T extends Actor> void performAs(T theUser) {
         WebDriver driver = GetCurrentDriver.usedBy(theUser);
         MobileElement mobileElement = (MobileElement) ((AndroidDriver) driver).findElementByAndroidUIAutomator("new UiScrollable("
-                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"));");
+                + "new UiSelector().scrollable(true)).scrollIntoView(" + "new UiSelector().text(\"" + text + "\"))");
     }
 }
