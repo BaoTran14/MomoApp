@@ -13,7 +13,7 @@ import vn.momo.ui.PictureAppSelectionGrid;
 import static org.hamcrest.Matchers.is;
 
 
-public class AccessGalleryApp implements Task {
+public class AccessPhotoApp implements Task {
     @Override
     public <T extends Actor> void performAs(T theUser) {
         theUser.attemptsTo(

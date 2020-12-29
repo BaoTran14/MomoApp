@@ -15,6 +15,10 @@ public class Update {
         return new UpdateCurrentHomeLocationBuilder(location);
     }
 
+    public static Task friendListPrivacyTo(Mode mode) {
+        return instrumented(UpdateFriendListPrivacy.class, mode);
+    }
+
     public static class UpdateIntimateNameBuilder {
         private final String intimateName;
 

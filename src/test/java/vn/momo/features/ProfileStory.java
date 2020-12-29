@@ -57,7 +57,7 @@ public class ProfileStory {
         andThat(anna).wasAbleTo(Start.withIntimateName("BaoBupBe"));
 
         when(anna).attemptsTo(
-                Update.theIntimateName("Bảo Bảo")d
+                Update.theIntimateName("Bảo Bảo")
                         .to(Mode.PUBLIC)
         );
 
@@ -144,6 +144,22 @@ public class ProfileStory {
         when(anna).attemptsTo(
                 Update.currentHomeLocation("Đà Nẵng")
                         .to(Mode.ONLY_ME)
+        );
+
+        then(anna).should(
+                seeThat(
+                        DisplayOf.successfulUpdateMessage(), is(true)
+                )
+        );
+    }
+
+    @Test
+    public void update_privacy_friend_list_to_public(){
+        givenThat(anna).wasAbleTo(Navigate.toProfileScreen());
+        andThat(anna).wasAbleTo(Start.withPrivacyFriendMode(Mode.ONLY_ME));
+
+        when(anna).attemptsTo(
+                Update.friendListPrivacyTo(Mode.PUBLIC)
         );
 
         then(anna).should(

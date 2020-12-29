@@ -7,8 +7,10 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 import vn.momo.ui.FooterFrame;
 import vn.momo.ui.MyWalletScreen;
+import vn.momo.ui.ProfileScreen;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class NavigateToProfileScreen implements Task {
 
@@ -19,7 +21,8 @@ public class NavigateToProfileScreen implements Task {
                 WaitUntil.the(FooterFrame.MY_WALLET_CATEGORY, isClickable()).forNoMoreThan(30).seconds(),
                 Click.on(FooterFrame.MY_WALLET_CATEGORY),
 //                MoveMouse.to(MyWalletScreen.PROFILE).andThen(Actions::click)
-                Click.on(MyWalletScreen.PROFILE)
+                Click.on(MyWalletScreen.PROFILE),
+                WaitUntil.the(ProfileScreen.SCREEN_TITLE_LABEL, isVisible()).forNoMoreThan(30).seconds()
         );
     }
 }

@@ -6,6 +6,6 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Access {
     public static Task photosApp() {
-        return instrumented(AccessGalleryApp.class);
+        return instrumented(AccessPhotoApp.class);
     }
 }

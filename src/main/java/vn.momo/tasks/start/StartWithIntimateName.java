@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
-import vn.momo.actions.choose.Choose;
 import vn.momo.actions.scroll.MobileScrollTo;
 import vn.momo.ui.AboutMeScreen;
 import vn.momo.ui.ProfileScreen;
