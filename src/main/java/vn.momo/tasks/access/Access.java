@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.Task;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class Access {
-    public static Task photosApp() {
-        return instrumented(AccessPhotoApp.class);
+    public static Task appWithPermission() {
+        return instrumented(AccessAppWithPermission.class);
     }
 }

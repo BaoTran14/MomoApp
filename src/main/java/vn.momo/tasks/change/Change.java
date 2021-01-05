@@ -8,4 +8,8 @@ public class Change {
     public static Task profileImage() {
         return instrumented(ChangeProfileImage.class);
     }
+
+    public static Task profileImageCapturedByCamera() {
+        return instrumented(ChangeProfileImageCapturedByCamera.class);
+    }
 }

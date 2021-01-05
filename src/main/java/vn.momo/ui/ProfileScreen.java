@@ -11,4 +11,5 @@ public class ProfileScreen {
     public static Target SCREEN_TITLE_LABEL = Target.the("screen title label").located(By.xpath("//*[@text='Trang cá nhân của tôi']"));
     public static Target PRIVACY_EDIT_BUTTON = Target.the("privacy edit button").located(By.xpath("(//*[@text='Chỉnh sửa'])[3]"));
     public static Target PRIVACY_LABEL = Target.the("privacy label").located(By.xpath("//*[@text()='Riêng tư']"));
+    public static Target SELECT_CAMERA = Target.the("camera option").located(By.xpath("//*[@text='Chụp hình']"));
 }

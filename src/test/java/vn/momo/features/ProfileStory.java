@@ -52,6 +52,21 @@ public class ProfileStory {
     }
 
     @Test
+    public void update_her_avatar_with_image_captured_by_camera() {
+        givenThat(anna).wasAbleTo(Navigate.toProfileScreen());
+
+        when(anna).attemptsTo(
+                Change.profileImageCapturedByCamera()
+        );
+
+        then(anna).should(
+                seeThat(
+                        DisplayOf.successfulUpdateMessage(), is(true)
+                )
+        );
+    }
+
+    @Test
     public void update_intimate_name_to_public() {
         givenThat(anna).wasAbleTo(Navigate.toIntroduceHerSelfScreen());
         andThat(anna).wasAbleTo(Start.withIntimateName("BaoBupBe"));
