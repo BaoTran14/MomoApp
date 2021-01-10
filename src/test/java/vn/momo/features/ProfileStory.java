@@ -23,10 +23,11 @@ import static org.hamcrest.Matchers.is;
 
 @RunWith(SerenityRunner.class)
 public class ProfileStory {
-    private static Environment environment = Environment.instance();
+    private Actor anna = Actor.named("Anna");
+    private Environment environment = Environment.instance();
+
     @Managed
     WebDriver herDriver;
-    private Actor anna = Actor.named("Anna");
 
     @Before
     public void annaCanLoginHerMomo() {

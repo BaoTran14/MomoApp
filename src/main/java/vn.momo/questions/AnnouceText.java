@@ -12,6 +12,7 @@ public class AnnouceText implements Question<String> {
 
     @Override
     public String answeredBy(Actor theUser) {
+        MomoScreen.MONEY_ANNOUCE_TEXT.resolveFor(theUser).waitUntilVisible();
         return Text.of(MomoScreen.MONEY_ANNOUCE_TEXT)
                 .viewedBy(theUser)
                 .asString();

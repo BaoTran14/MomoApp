@@ -20,10 +20,11 @@ import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(SerenityRunner.class)
 public class LogoutStory {
-    private static Environment environment = Environment.instance();
+    private Actor anna = Actor.named("Anna");
+    private Environment environment = Environment.instance();
+
     @Managed
     WebDriver herDriver;
-    private Actor anna = Actor.named("Anna");
 
     @Before
     public void annaCanOpenMomo() {

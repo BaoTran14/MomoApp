@@ -5,6 +5,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,19 +19,26 @@ import vn.momo.ui.IntroductionScreen;
 import vn.momo.ui.WelcomeScreen;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(SerenityRunner.class)
 public class LoginStory {
-
-    private static Environment environment = Environment.instance();
-    @Managed(uniqueSession = true, driver = "Appium")
-    public WebDriver herBrowser;
     private Actor anna = Actor.named("Anna");
+    private Actor supplier = Actor.named("momo");
+    private Environment environment = Environment.instance();
+
+    @Managed(driver="firefox")
+    WebDriver webDriver;
+
+    @Managed(driver = "Appium")
+    WebDriver herBrowser;
+
 
     @Before
     public void annaCanBrowseTheWeb() {
         anna.can(BrowseTheWeb.with(herBrowser));
+        supplier.can(BrowseTheWeb.with(webDriver));
     }
 
     @Test
@@ -51,7 +60,12 @@ public class LoginStory {
 
     @Test
     public void log_in_success_with_valid_credential() {
+        givenThat(supplier).attemptsTo(
+                Open.url("https://momo.vn")
+        );
+
         when(anna).attemptsTo(
+                WaitUntil.the(WelcomeScreen.PASSWORD_FIELD, isVisible()).forNoMoreThan(60).seconds(),
                 Enter.theValue(environment.PASSWORD).into(WelcomeScreen.PASSWORD_FIELD),
                 Click.on(WelcomeScreen.LOGIN_BUTTON)
         );
