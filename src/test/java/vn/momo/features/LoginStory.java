@@ -1,5 +1,6 @@
 package vn.momo.features;
 
+import io.appium.java_client.android.AndroidDriver;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
@@ -17,6 +18,7 @@ import vn.momo.questions.AnnouceText;
 import vn.momo.questions.displayof.DisplayOf;
 import vn.momo.ui.IntroductionScreen;
 import vn.momo.ui.WelcomeScreen;
+import vn.momo.utils.DriverUtils;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -28,16 +30,20 @@ public class LoginStory {
     private Actor supplier = Actor.named("momo");
     private Environment environment = Environment.instance();
 
-    @Managed(driver="firefox")
+    @Managed(driver="chrome")
     WebDriver webDriver;
 
     @Managed(driver = "Appium")
     WebDriver herBrowser;
 
+    @Managed
+    AndroidDriver androidDriver = DriverUtils.initAndroidDriver();
+
 
     @Before
     public void annaCanBrowseTheWeb() {
-        anna.can(BrowseTheWeb.with(herBrowser));
+//        anna.can(BrowseTheWeb.with(herBrowser));
+        anna.can(BrowseTheWeb.with(androidDriver));
         supplier.can(BrowseTheWeb.with(webDriver));
     }
 
@@ -65,6 +71,8 @@ public class LoginStory {
         );
 
         when(anna).attemptsTo(
+//                WaitUntil.the(WelcomeScreen.PHONE_FIELD, isVisible()).forNoMoreThan(60).seconds(),
+//                Enter.theValue(environment.PHONE_NUMBER).into(WelcomeScreen.PHONE_FIELD)
                 WaitUntil.the(WelcomeScreen.PASSWORD_FIELD, isVisible()).forNoMoreThan(60).seconds(),
                 Enter.theValue(environment.PASSWORD).into(WelcomeScreen.PASSWORD_FIELD),
                 Click.on(WelcomeScreen.LOGIN_BUTTON)
